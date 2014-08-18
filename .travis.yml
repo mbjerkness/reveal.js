@@ -14,5 +14,6 @@ deploy:
   secret_access_key:
     secure: twvvMsBOB0D/TN1A4902Fm0ublxEFu93Mz2WWMgjRt+sQlMw+dblbYcRJ/PTL+9+OldYWe0/SIY/qYMrV9m37KpwqFNl7SxBUr7o67NAgO879dQr3BVEBhfpnDP9ECsRvaoEqoWDN3qbVe4ZSbQNNBIrqZYUhkTq2Tox83JdOH8=
   bucket: assets.bjerkness.net
+  region: us-west-2
   upload-dir: revealjs
   acl: !ruby/string:HighLine::String public_read

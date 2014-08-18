@@ -7,6 +7,7 @@ install:
   - sudo apt-get install s3cmd
 before_script: grunt
 deploy:
+  skip_cleanup: true
   provider: s3
   access_key_id: AKIAJQCFHOZKLTA7DIZQ
   secret_access_key:

@@ -1,8 +1,11 @@
 language: node_js
+
 node_js:
 - 0.8
 before_script:
+- npm update
 - npm install -g grunt-cli
+
 deploy:
   provider: s3
   access_key_id: AKIAIFUVCGYAEHLVSEUA

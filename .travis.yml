@@ -1,13 +1,10 @@
 language: node_js
 node_js:
 - '0.11'
-before_script:
-- npm update
-- npm install -g grunt-cli
-install:
-- sudo apt-get install s3cmd
-after_script:
-- d
+before_install: npm install -g grunt-cli
+install: npm install
+install: sudo apt-get install s3cmd
+before_script: grunt build
 deploy:
   provider: s3
   access_key_id: AKIAJQCFHOZKLTA7DIZQ

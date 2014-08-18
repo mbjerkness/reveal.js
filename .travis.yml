@@ -5,7 +5,7 @@ before_install: npm install -g grunt-cli
 install:
   - npm install
   - sudo apt-get install s3cmd
-before_script: grunt build
+before_script: grunt
 deploy:
   provider: s3
   access_key_id: AKIAJQCFHOZKLTA7DIZQ

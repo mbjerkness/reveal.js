@@ -1,27 +1,18 @@
 language: node_js
-
 node_js:
-  - "0.11"
-
+- '0.11'
 before_script:
 - npm update
 - npm install -g grunt-cli
-
 install:
-  - sudo apt-get install s3cmd
-
+- sudo apt-get install s3cmd
 after_script:
-  - s3cmd put --acl-private --guess-mime-type --config=.s3cfg selenium-screenshot* s3://my-travis-builds/#$TRAVIS_JOB_ID/
-
-
+- s3cmd put --acl-private --guess-mime-type --config=.s3cfg selenium-screenshot* s3://my-travis-builds/#$TRAVIS_JOB_ID/
 deploy:
   provider: s3
-  access_key_id: AKIAIFUVCGYAEHLVSEUA
+  access_key_id: AKIAJQCFHOZKLTA7DIZQ
   secret_access_key:
-    secure: VHP0UqirQSZU+S/ZgYFpTP5aNYX3zWGfx7vzOQAPs/ypAhpL0xnbbj3dArw7dGZ45rDYagWsqgM6fMEm7+dIK7EXcYkUQb9BIao700xQe95jcT5rI7xMmZSPPAXg1MIuj9lKy9E2djOFRRnnidpM6vMPjT5wpszMchCS/oRjTYk=
+    secure: twvvMsBOB0D/TN1A4902Fm0ublxEFu93Mz2WWMgjRt+sQlMw+dblbYcRJ/PTL+9+OldYWe0/SIY/qYMrV9m37KpwqFNl7SxBUr7o67NAgO879dQr3BVEBhfpnDP9ECsRvaoEqoWDN3qbVe4ZSbQNNBIrqZYUhkTq2Tox83JdOH8=
   bucket: assets.bjerkness.net
-  region: "us-west-2"
   upload-dir: revealjs
   acl: !ruby/string:HighLine::String public_read
-  on:
-    repo: mbjerkness/reveal.js

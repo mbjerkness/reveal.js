@@ -1,5 +1,17 @@
 language: node_js
 node_js:
-  - 0.8
+- 0.8
 before_script:
-  - npm install -g grunt-cli
+- npm install -g grunt-cli
+install:
+- pip install -r requirements.txt
+deploy:
+  provider: s3
+  access_key_id: AKIAIFUVCGYAEHLVSEUA
+  secret_access_key:
+    secure: VHP0UqirQSZU+S/ZgYFpTP5aNYX3zWGfx7vzOQAPs/ypAhpL0xnbbj3dArw7dGZ45rDYagWsqgM6fMEm7+dIK7EXcYkUQb9BIao700xQe95jcT5rI7xMmZSPPAXg1MIuj9lKy9E2djOFRRnnidpM6vMPjT5wpszMchCS/oRjTYk=
+  bucket: assets.bjerkness.net
+  upload-dir: revealjs
+  acl: !ruby/string:HighLine::String public_read
+  on:
+    repo: mbjerkness/reveal.js

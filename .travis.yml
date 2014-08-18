@@ -7,7 +7,7 @@ before_script:
 install:
 - sudo apt-get install s3cmd
 after_script:
-- s3cmd put --acl-private --guess-mime-type --config=.s3cfg selenium-screenshot* s3://my-travis-builds/#$TRAVIS_JOB_ID/
+- d
 deploy:
   provider: s3
   access_key_id: AKIAJQCFHOZKLTA7DIZQ
@@ -16,4 +16,5 @@ deploy:
   bucket: assets.bjerkness.net
   region: us-west-2
   upload-dir: revealjs
+  local-dir: dist
   acl: !ruby/string:HighLine::String public_read

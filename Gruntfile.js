@@ -105,7 +105,19 @@ module.exports = function(grunt) {
 				files: [ 'css/theme/source/*.scss', 'css/theme/template/*.scss' ],
 				tasks: 'themes'
 			}
-		}
+		},
+
+		copy: {
+			main: {
+				files: [
+					// includes files within path and its sub-directories
+					{expand: true, src: ['css/**'], dest: 'dist/'},
+					{expand: true, src: ['js/**'],  dest: 'dist/'},
+					{expand: true, src: ['lib/**'], dest: 'dist/'},
+					{expand: true, src: ['plugin/**'], dest: 'dist/'}
+					]
+				}
+			}
 
 	});
 
@@ -117,10 +129,11 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks( 'grunt-contrib-watch' );
 	grunt.loadNpmTasks( 'grunt-contrib-sass' );
 	grunt.loadNpmTasks( 'grunt-contrib-connect' );
+	grunt.loadNpmTasks( 'grunt-contrib-copy' );
 	grunt.loadNpmTasks( 'grunt-zip' );
 
 	// Default task
-	grunt.registerTask( 'default', [ 'jshint', 'cssmin', 'uglify', 'qunit' ] );
+	grunt.registerTask( 'default', [ 'jshint', 'cssmin', 'uglify', 'qunit', 'copy' ] );
 
 	// Theme task
 	grunt.registerTask( 'themes', [ 'sass' ] );
